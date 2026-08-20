@@ -18,10 +18,11 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: Install linting tool
         run: pip install flake8
+
 
       - name: Run flake8
         run: flake8 src/ tests/ --max-line-length=100
