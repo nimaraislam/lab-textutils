@@ -28,9 +28,13 @@ jobs:
         run: flake8 src/ tests/ --max-line-length=100
 
   test:
-    name: Run test in docker
+    name: Test python ${{matrix.python-version}}
     needs: lint
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.11","3.12","3.13"]
 
     steps:
       - name: Get code
